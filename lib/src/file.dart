@@ -9,7 +9,7 @@ class Directory extends umi.Directory {
 
   String get path => fe.path;
 
-  Future<bool> isDir() async{
+  Future<bool> isDirectory() async{
     if(!await exists()) {
       return false;
     }
@@ -45,7 +45,7 @@ class File extends umi.File{
 
   String get path => fe.path;
 
-  Future<bool> isDir() async{
+  Future<bool> isDirectory() async{
     if(!await exists()) {
       return false;
     }
