@@ -1,0 +1,19 @@
+name: umiuni2d_io_flutter_example
+description: Demonstrates how to use the umiuni2d_io_flutter plugin.
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  umiuni2d_io_flutter:
+    path: ../
+  umiuni2d_platform_path:
+    git: https://github.com/kyorohiro/umiuni2d_platform_path.git
+  umiuni2d_io:
+    git: https://github.com/kyorohiro/umiuni2d_io.git
+flutter:
+  uses-material-design: true
