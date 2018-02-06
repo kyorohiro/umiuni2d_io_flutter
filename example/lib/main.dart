@@ -1,7 +1,7 @@
 library app;
 import 'package:flutter/material.dart';
 import 'package:umiuni2d_io_flutter/umiuni2d_io.dart' as uni;
-import 'package:umiuni2d_io_flutter/io.dart' as umi;
+import 'package:umiuni2d_io/umiuni2d_io.dart' as umi;
 
 import 'dart:async';
 import 'dart:convert' as conv;
