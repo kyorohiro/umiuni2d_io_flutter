@@ -21,7 +21,7 @@ public class Umiuni2dIoFlutterPlugin implements MethodCallHandler {
    * Plugin registration.
    */
   public static void registerWith(Registrar registrar) {
-    final MethodChannel channel = new MethodChannel(registrar.messenger(), "umiuni2d_io_flutter");
+    final MethodChannel channel = new MethodChannel(registrar.messenger(), "umiuni2d_platform_path");
     channel.setMethodCallHandler(new Umiuni2dIoFlutterPlugin(registrar));
   }
 
