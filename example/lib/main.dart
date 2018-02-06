@@ -182,8 +182,8 @@ class FileListState extends State<FileList> {
   }
   @override
   Widget build(BuildContext context) {
-    List<Widget> w = this.widget.files.map((umi.Entry v) =>buildItems(context, v.name)).toList();
-    w.insert(0, buildItems(context,".."));
+    List<Widget> w = this.widget.files.map((umi.Entry v) =>buildItems(context, (v is umi.Directory), v.name)).toList();
+    w.insert(0, buildItems(context, true,".."));
     return new Scaffold(
       appBar: new AppBar(
         title: new Text(
@@ -203,7 +203,7 @@ class FileListState extends State<FileList> {
     );
   }
 
-  Widget buildItems(BuildContext context, String text) {
+  Widget buildItems(BuildContext context, isDir, String text) {
     return new ListTile(
       onTap: () async {
         if(await this.widget.fileSystem.isFile(text)) {
@@ -218,7 +218,7 @@ class FileListState extends State<FileList> {
         openDeleteDialog(text);
       },
       leading: new CircleAvatar(
-        child: new Text("Hello, World!!"),
+        child: new Text((isDir?"Dir":"File")),
       ),
       title: new Text(text),
     );
