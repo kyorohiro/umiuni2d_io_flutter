@@ -1,11 +1,43 @@
 part of umiuni2d_io_flutter;
 
+class Directory extends umi.Directory {
+
+  dio.FileSystemEntity fe;
+  Directory(this.fe);
+
+  String get name => dpath.basename(fe.path);
+
+  String get path => fe.path;
+
+  Future<bool> isDir() async{
+    if(!await exists()) {
+      return false;
+    }
+    if(fe is dio.Directory) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  Future<bool> isFile() async{
+    if(!await exists()) {
+      return false;
+    }
+    if(fe is dio.File) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  Future<bool> exists() async{
+    return fe.exists();
+  }
+}
+
 class File extends umi.File{
   dio.FileSystemEntity fe;
   dio.RandomAccessFile af;
-  File(this.fe, this.af) {
-
-  }
+  File(this.fe, this.af);
 
   //
   //
@@ -32,6 +64,11 @@ class File extends umi.File{
     } else {
       return false;
     }
+  }
+
+  Future<File> open() async {
+    af = await (fe as dio.File).open(mode: dio.FileMode.APPEND);
+    return this;
   }
   Future<bool> exists() async{
     return fe.exists();

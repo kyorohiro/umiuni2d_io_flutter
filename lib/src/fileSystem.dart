@@ -63,7 +63,11 @@ class FileSystem extends umi.FileSystem{
         throw "not found " + path;
       }
       await for (dio.FileSystemEntity f in d.list()) {
-        yield new File(f, null);
+        if(f is dio.Directory) {
+          yield new Directory(f);
+        } else {
+          yield new File(f, null);
+        }
       }
     }
   }
@@ -95,7 +99,7 @@ class FileSystem extends umi.FileSystem{
       throw "not directory ${path}";
     }
     dio.Directory f = new dio.Directory(path);
-    _currentDirectory = new File(f, null);
+    _currentDirectory = new Directory(f);
     return this;
   }
 
@@ -112,7 +116,7 @@ class FileSystem extends umi.FileSystem{
   @override
   Future<umi.Entry> getHomeDirectory() async {
     String path = await _path.getApplicationDirectory() + "/";
-    return new File(new dio.Directory(path), null);
+    return new Directory(new dio.Directory(path));
   }
 
 }
