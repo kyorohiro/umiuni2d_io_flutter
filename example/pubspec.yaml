@@ -11,8 +11,6 @@ dev_dependencies:
     sdk: flutter
   umiuni2d_io_flutter:
     path: ../
-  umiuni2d_platform_path:
-    git: https://github.com/kyorohiro/umiuni2d_platform_path.git
   umiuni2d_io:
     git: https://github.com/kyorohiro/umiuni2d_io.git
 flutter:

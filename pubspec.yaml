@@ -7,8 +7,6 @@ homepage:
 dependencies:
   flutter:
     sdk: flutter
-  umiuni2d_platform_path:
-    git: https://github.com/kyorohiro/umiuni2d_platform_path.git
   umiuni2d_io:
     git: https://github.com/kyorohiro/umiuni2d_io.git
   path: 1.5.1
