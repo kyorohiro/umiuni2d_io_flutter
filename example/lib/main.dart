@@ -40,9 +40,8 @@ class FileList extends StatefulWidget {
   mkfile(String v) async {
     try {
       files.clear();
-      umi.File f = await fileSystem.open(v);
+      umi.File f = await fileSystem.getEntry(v);
       await f.writeAsBytes(conv.UTF8.encode("Hello, World!!"), 0);
-      await f.close();
       await ls();
     } catch(e){
     }
@@ -60,9 +59,8 @@ class FileList extends StatefulWidget {
   read(String v) async {
     try {
       files.clear();
-      umi.File f = await fileSystem.open(v);
+      umi.File f = await fileSystem.getEntry(v);
       List<int> vv = await f.readAsBytes(0, await f.getLength());
-      await f.close();
       try {
         return conv.UTF8.decode(vv);
       } catch(e) {
