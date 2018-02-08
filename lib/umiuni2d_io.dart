@@ -6,6 +6,8 @@ import 'package:flutter/services.dart';
 //import 'package: as io;
 import 'package:umiuni2d_io/umiuni2d_io.dart' as umi;
 import 'package:umiuni2d_io_flutter/umiuni2d_io.dart' as path;
+import 'package:umiuni2d_io_dartio/umiuni2d_io.dart' as dartio;
+
 import 'dart:io'as dio;
 import 'package:path/path.dart' as dpath;
 part 'src/file.dart';
